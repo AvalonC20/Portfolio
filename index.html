@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Avalon Carrington is a web developer creating thoughtful, accessible digital experiences.">
+	<title>Avalon Carrington | Web Developer</title>
+	<style>
+		:root { color-scheme: dark; --bg: #111318; --surface: #1a1d24; --text: #f5f5f0; --muted: #a5a8b2; --accent: #b7f36b; --line: #30333b; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.65; }
+		a { color: inherit; text-decoration: none; }
+		.container { width: min(1050px, calc(100% - 40px)); margin: auto; }
+		header { height: 78px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+		.logo { font-weight: 800; letter-spacing: -.06em; font-size: 1.15rem; }.logo span { color: var(--accent); }
+		nav { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: .9rem; }
+		nav a:hover, .quiet-link:hover { color: var(--accent); }
+		.nav-contact { color: var(--text); border: 1px solid var(--line); padding: 8px 15px; border-radius: 30px; }
+		.hero { min-height: 590px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 45px; padding: 70px 0 85px; }
+		.label { color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: .75rem; font-weight: 750; }
+		h1 { margin: 18px 0; font-size: clamp(3.4rem, 8vw, 6.3rem); line-height: .98; letter-spacing: -.075em; }
+		h1 span { color: var(--accent); }
+		.lead { max-width: 500px; color: var(--muted); font-size: 1.08rem; }
+		.actions { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+		.button { display: inline-block; padding: 11px 18px; border-radius: 30px; font-size: .9rem; font-weight: 700; }
+		.primary { background: var(--accent); color: #15190f; }.secondary { border: 1px solid var(--line); }
+		.visual { min-height: 330px; border: 1px solid var(--line); border-radius: 26px; display: grid; place-items: center; position: relative; overflow: hidden; background: radial-gradient(ellipse at center, #273222 0, var(--surface) 62%); }
+		.visual::before, .visual::after { content: ""; position: absolute; border: 1px solid #b7f36b33; border-radius: 50%; width: 260px; height: 260px; }
+		.visual::after { width: 360px; height: 360px; }
+		.initials { position: relative; z-index: 1; font-size: clamp(6rem, 15vw, 9rem); font-weight: 850; letter-spacing: -.12em; color: var(--accent); }
+		.badge { position: absolute; left: 18px; bottom: 18px; background: #111318d9; border: 1px solid var(--line); padding: 7px 12px; border-radius: 30px; color: var(--muted); font-size: .76rem; z-index: 2; }
+		.badge::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); margin-right: 8px; }
+		section.content { padding: 70px 0; border-top: 1px solid var(--line); }
+		.section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 26px; }
+		h2 { margin: 6px 0 0; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.06em; line-height: 1.15; }
+		.note { color: var(--muted); max-width: 390px; margin: 0; font-size: .92rem; }
+		.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+		.project { background: var(--surface); border: 1px solid var(--line); border-radius: 17px; padding: 23px; min-height: 215px; display: flex; flex-direction: column; justify-content: space-between; transition: border-color .2s, transform .2s; }
+		.project:hover { border-color: #b7f36b80; transform: translateY(-3px); }
+		.project-meta { display: flex; justify-content: space-between; color: var(--muted); font-size: .78rem; }
+		h3 { margin: 21px 0 5px; font-size: 1.4rem; letter-spacing: -.04em; }
+		.project p, .about-copy { color: var(--muted); font-size: .92rem; }
+		.project p { margin: 0; }
+		.tags, .skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+		.tag, .skill { border: 1px solid var(--line); border-radius: 30px; padding: 5px 10px; font-size: .75rem; }
+		.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; }
+		.about-copy p:first-child { margin-top: 0; }
+		.skill { border-radius: 9px; background: var(--surface); padding: 8px 11px; color: var(--text); font-size: .82rem; }
+		.contact { text-align: center; padding: 85px 0 95px; }
+		.contact p { max-width: 470px; margin: 14px auto 25px; color: var(--muted); }
+		footer { border-top: 1px solid var(--line); padding: 20px 0; color: var(--muted); font-size: .82rem; display: flex; justify-content: space-between; }
+		.quiet-link { color: var(--text); }
+		@media (max-width: 700px) {
+			.container { width: calc(100% - 34px); }
+			nav { gap: 15px; } nav a:not(.nav-contact) { display: none; }
+			.hero { grid-template-columns: 1fr; padding: 65px 0; gap: 32px; }
+			.visual { min-height: 270px; }
+			.projects, .about-grid { grid-template-columns: 1fr; }
+			.about-grid { gap: 20px; }
+			.section-head { display: block; }.note { margin-top: 12px; }
+			section.content { padding: 58px 0; }
+		}
+		@media (max-width: 420px) { h1 { font-size: 3.35rem; } footer { flex-direction: column; gap: 7px; } }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<a class="logo" href="#home" aria-label="Avalon Carrington, home">AC<span>.</span></a>
+			<nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a class="nav-contact" href="#contact">Let's talk ↗</a></nav>
+		</header>
+		<main>
+			<section class="hero" id="home" style="border: 0">
+				<div>
+					<div class="label">Web developer · Trinidad &amp; Tobago</div>
+					<h1>Hi, I'm<br><span>Avalon</span><br>Carrington.</h1>
+					<p class="lead">I build thoughtful, accessible websites that bring good ideas to life—with clean code and a focus on the people using them.</p>
+					<div class="actions"><a class="button primary" href="#work">Explore my work ↘</a><a class="button secondary" href="#contact">Get in touch</a></div>
+				</div>
+				<div class="visual" role="img" aria-label="Avalon Carrington initials">
+					<div class="initials" aria-hidden="true">AC</div><div class="badge">Open to opportunities</div>
+				</div>
+			</section>
+			<section class="content" id="work">
+				<div class="section-head"><div><div class="label">Selected work</div><h2>Things I've made.</h2></div><p class="note">A couple of concepts that show how I approach useful, polished web experiences.</p></div>
+				<div class="projects">
+					<article class="project"><div><div class="project-meta"><span>01 / Web design</span><span aria-hidden="true">↗</span></div><h3>Island Goods</h3><p>A bright, easy-to-browse storefront concept for a local maker and their handmade goods.</p></div><div class="tags"><span class="tag">Responsive design</span><span class="tag">E-commerce</span></div></article>
+					<article class="project"><div><div class="project-meta"><span>02 / Front-end</span><span aria-hidden="true">↗</span></div><h3>Study Space</h3><p>A calm dashboard concept to help students organize tasks and keep track of goals.</p></div><div class="tags"><span class="tag">HTML &amp; CSS</span><span class="tag">JavaScript</span></div></article>
+				</div>
+			</section>
+			<section class="content" id="about">
+				<div class="about-grid">
+					<div><div class="label">A little about me</div><h2>Curious by nature.<br>Developer by craft.</h2></div>
+					<div class="about-copy"><p>I'm Avalon, a web developer who enjoys turning ideas into clear, engaging digital experiences. I care about the details: accessible interfaces, responsive layouts, and code that's easy to build on.</p><p>I'm always learning, experimenting, and looking for the next interesting problem to solve.</p><div class="skills" aria-label="Skills"><span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">JavaScript</span><span class="skill">Responsive design</span><span class="skill">Accessibility</span><span class="skill">UI development</span></div></div>
+				</div>
+			</section>
+			<section class="content contact" id="contact">
+				<div class="label">Have a project in mind?</div><h2>Let's make it happen.</h2>
+				<p>I'm open to new opportunities, collaborations, and interesting conversations. Drop me a line and let's get started.</p>
+				<a class="button primary" href="mailto:hello@example.com">Say hello ↗</a>
+			</section>
+		</main>
+		<footer><span>© <span id="year">2025</span> Avalon Carrington</span><a class="quiet-link" href="#home">Back to top ↑</a></footer>
+	</div>
+	<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
